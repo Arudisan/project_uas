@@ -18,40 +18,21 @@ if (!isset($_GET['action'])) {
             <th>total</th>
             <th>tgl transaksi</th>
             <th>bukti bayar</th>
-            <th>Status Pesanan</th>
-            <th>Action</th>
-            <th>Action</th>
         </tr>
         <?php
-        $list_penjualan = mysqli_query($koneksidb, "SELECT t.no_invoice,p.nm_kamar,m.nm_member,t.qty,t.harga,t.total,t.buktipembayaran,t.tgl_transaksi,t.is_bayar,t.is_closed FROM tst_penjualan t INNER JOIN daftarmember m ON t.idmember = m.idmember INNER JOIN mst_kamar p ON t.idproduk = p.id_kamar");
+        $list_penjualan = mysqli_query($koneksidb, "select * from booking order by no_booking desc");
         foreach ($list_penjualan as $lp) :
         ?>
             <tr>
-                <td><?= $lp['no_invoice']; ?></td>
-                <td><?= $lp['nm_kamar']; ?></td>
-                <td><?= $lp['nm_member']; ?></td>
-                <td><?= $lp['qty']; ?></td>
-                <td><?= $lp['harga']; ?></td>
-                <td><?= $lp['total']; ?></td>
-                <td><?= $lp['tgl_transaksi']; ?></td>
-                <td><?= $lp['buktipembayaran']; ?></td>
-                <td><?= ($lp['is_bayar'] == 1) ? "Lunas" : "Belum Lunas" ?></td>
-                <td><?= ($lp['is_closed'] == 1) ? "Selesai" : "Proses" ?></td>
-                <td>
-                    <?php
-                    if ($lp['is_bayar'] == 1) {
-                    ?>
-                        <a href="?modul=mod_transaksi&action=edit&id=<?= $lp['no_invoice']; ?>" class="btn btn-xs btn-primary"><i class="bi bi-pencil-square"></i> Edit</a>
-                        <a href="?modul=mod_transaksi&action=delete&id=<?= $lp['no_invoice']; ?>" class="btn btn-xs btn-danger"><i class="bi bi-trash"></i> Delete</a>
-                    <?php
-                    } else {
-                    ?>
-                        <a href="?modul=mod_transaksi&action=edit&id=<?= $lp['no_invoice']; ?>" class="btn btn-xs btn-primary"><i class="bi bi-pencil-square"></i> Edit</a>
-                    <?php
-                    }
-                    ?>
-                </td>
-            </tr>
+                <td><?= $lp['no_booking']; ?></td>
+                <td><?= $lp['nm_booking']; ?></td>
+                <td><?= $lp['email']; ?></td>
+                <td><?= $lp['tgl_booking']; ?></td>
+                <td><?= $lp['tgl_lhr']; ?></td>
+                <td><?= $lp['no_tlp']; ?></td>
+                <td><?= $lp['alamat']; ?></td>
+                <td><?= $lp['gambar']; ?></td>
+                  </tr>
         <?php
         endforeach;
         ?>

@@ -29,8 +29,8 @@ if (!isset($_GET['act'])) {
                     <td><?php echo $row['jml'] ?></td>
                     <td><?php echo $row['deskripsi'] ?></td>
                     <td>
-                        <a href="?modul=mod_kamar&act=edit&id=<?= $d["id_kamar"]; ?>" class="btn btn-xs btn-primary"><i class="bi bi-pencil-square"></i> Edit</a>
-                        <a href="?modul=mod_kamar&act=delete&id=<?= $d["id_kamar"]; ?>" class="btn btn-xs btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                        <a href="?modul=mod_kamar&act=edit&id=<?= $row["id_kamar"]; ?>" class="btn btn-xs btn-primary"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a href="?modul=mod_kamar&act=delete&id=<?= $row["id_kamar"]; ?>" class="btn btn-xs btn-danger"><i class="bi bi-trash"></i> Delete</a>
                     </td>
                 </tr>
                 <?php 
@@ -46,9 +46,10 @@ if (!isset($_GET['act'])) {
         <form action="?modul=mod_kamar&act=save" method="post" enctype="multipart/form-data">
         <div class="row pt-2">
             <div class="col-md-2"> 
+            <label for="username" class="form-label" name="judul"  >id_kamar </label>
         </div>  
         <div class="col-md-5"> 
-            <input type="hidden"name="id_kamar" class="form-control">  
+            <input type="hidden" name="id_kamar" class="form-control"  >  
             </div>
             <div class="col-md-1"></div>
             </div>
@@ -134,89 +135,94 @@ if (!isset($_GET['act'])) {
     else if (isset($_GET['act']) && ($_GET['act']== "edit")){
     ?>
         <div class="row">
-            <h3><?php echo $judul; ?></h3>
-            <form action="mod_blog/blogCtrl.php?modul=mod_blog&act=update" method="post">
-            <div class="row pt-2">
+        <h3><?php echo $judul; ?></h3>
+        <form action="?modul=mod_kamar&act=update" method="post" enctype="multipart/form-data">
+        <div class="row pt-2">
             <div class="col-md-2"> 
+            <label for="username" class="form-label" name="judul"  >id_kamar </label>
         </div>  
         <div class="col-md-5"> 
-            <input type="hidden"name="id_blog" class="form-control" value="<?php echo $data['id_blog'];?>">  
+            <input type="text" name="id_kamar" class="form-control"  value="<?php echo $data['id_kamar'];?>">  
             </div>
             <div class="col-md-1"></div>
             </div>
-            <div class="row pt-2">
-            <div class="col-md-2"> 
-            <label for="username" class="form-label" name="judul" >Judul </label>
-        </div>  
-        <div class="col-md-5"> 
-            <input type="text" name="judul" class="form-control" value="<?php echo $data['judul'];?>">  
-            </div>
-            <div class="col-md-1"></div>
-            </div>
-            <div class="row pt-2">
-            <div class="col-md-2"> 
-            <label for="id_kategori" class="form-label" name="id_kategori "> ID Kategori </label>
-        </div>  
-        <div class="col-md-5"> 
-        <select name="id_kategori" value="<?php echo $data['id_kategori'];?>">
+        <div class="row pt-2">
+        <div class="col-md-2"> 
+        <label for="username" class="form-label" name="judul" >Nama Kamar</label>
+    </div>  
+    <div class="col-md-5"> 
+        <input type="text "name="kamar" class="form-control"  value="<?php echo $data['nm_kamar'];?>">  
+        </div>
+        <div class="col-md-1"></div>
+        </div>
+        <div class="row pt-2">
+        <div class="col-md-2"> 
+        <label for="username" class="form-label" name="gambar" >gambar</label>
+    </div>  
+    <div class="col-md-5"> 
+        <input type="file" name="gambar" class="form-control"  value="<?php echo $data['gambar'];?>"> 
+        <img src="../../assets/img/<?=$data['gambar']; ?>" class="img img-thumbnail mt-1" width="200px"> 
+        </div>
+        <div class="col-md-1"></div>
+        </div>
+        <div class="row pt-2">
+        <div class="col-md-2"> 
+        <label for="username" class="form-label"> ID tipe</label>
+    </div>  
+    <div class="col-md-5"> 
+    <select id="id kategori" name="id_tipe"  value="<?php echo $data['id_tipe'];?>">
+    <?php
+        $qry_listidkat= mysqli_query($koneksidb,"select * from mst_tipekamar")or die("gagal akses tabel mst_tipekamar".mysqli_error($koneksidb));
+        while($row = mysqli_fetch_array($qry_listidkat)){
+        ?>
+        <option value="<?php echo $row['id_tipe'];?>"><?php echo $row['nm_tipe'];?></option>
         <?php
-            $qry_listidkat= mysqli_query($connect_db,"select * from mst_kategoriblog")or die("gagal akses tabel mst_kategoriblog".mysqli_error($connect_db));
-            while($row = mysqli_fetch_array($qry_listidkat)){
-            ?>
-            <option value="<?php echo $row['id_kategori'];?>"><?php echo $row['id_kategori'];?></option>
-            <?php
-            }
-            ?>
-        </select>
-            </div>
-            <div class="col-md-1"></div>
-            </div>
-            <div class="row pt-2">
-            <div class="col-md-2"> 
-            <label for="username" class="form-label" name="konten" >Konten </label>
-        </div>  
-        <div class="col-md-5"> 
-            <textarea name="konten" value="<?php echo $data['konten'];?>"><?php echo $data['konten'];?> </textarea>
-            </div>
-            <div class="col-md-1"></div>
-            </div>
-            <div class="row pt-2">
-        <div class="col-md-2"> 
-    </div>  
-    <div class="col-md-5"> 
-    <input type="hidden" name="author" class="form-control" value="<?php echo $data['author'];?>">
+        }
+        ?>
+    </select>
         </div>
         <div class="col-md-1"></div>
         </div>
-            <div class="row pt-2">
-            <div class="col-md-2"> 
-            <label for="username" class="form-label" name="inputdate"  > Inputdate </label>
-        </div>  
-        <div class="col-md-5"> 
-        <input type="date" id="start" name="inputdate" value="<?php echo $data['dateinput'];?>"> </div>
-            <div class="col-md-1"></div>
-            </div>
-            <div class="row pt-2">
+        <div class="row pt-2">
         <div class="col-md-2"> 
-        <label for="myfile" >Upload Gambar/foto</label>
+        <label for="username" class="form-label" name="harga" >harga </label>
     </div>  
     <div class="col-md-5"> 
-    <input type="file" id="myfile" name="gambar" value="<?php echo $row['gambar'];?>">
+        <input type="text "name="harga" class="form-control"  value="<?php echo $data['harga'];?>">  
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-md-2"> 
+        <label for="username" class="form-label" name="jumlah" >jumlah</label>
+    </div>  
+    <div class="col-md-5">  
+        <input type="text "name="jumlah" class="form-control"  value="<?php echo $data['jml'];?>">  
+        </div>
+        <div class="row pt-2">
+        <div class="col-md-2"> 
+        <label for="username" class="form-label"  >Deskripsi</label>
+    </div>  
+    <div class="col-md-5"> 
+    <textarea class="form-control" id="mytextarea" cols="30" rows="10" name="deskripsi"  value="<?php echo $data['deskripsi'];?>"> <?php echo $data['deskripsi'];?></textarea>
+        <!-- </div>
         <div class="col-md-1"></div>
         </div>
-     </div>
-            <div class="row pt-2">
-            <div class="col-md-2">
-                </div>  
-            <div class="col-md-5"> 
-            <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-secondary" type="reset" ><i class="bi bi-x" name="reset" > </i> Batal </button>
-            <button class="btn btn-primary" type="submit"><i class="bi bi-download" name="simpan" > </i> Simpan </button>
-            </div>
-            <div class="col-md-1"></div>
-            </div>
-            </form> 
-        </div>  
+        <div class="row pt-2">
+        <div class="col-md-2">  -->
+    </div>  
+        <div class="row pt-2">
+        <div class="col-md-2">
+            </div>  
+        <div class="col-md-5"> 
+        <div class="d-grid gap-2 d-md-block">
+        <button class="btn btn-secondary" type="reset" ><i class="bi bi-x" name="reset" > </i> Batal </button>
+        <button class="btn btn-primary" type="submit"><i class="bi bi-download" name="simpan" > </i> Simpan </button>
         </div>
+        <div class="col-md-1"></div>
+        </div>
+        </form> 
+    </div> 
+    </div> 
+    </div>
         <?php
         }

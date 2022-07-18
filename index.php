@@ -20,7 +20,7 @@
 <body>
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bgnav" style="color: white !important">
-		<div class="container pe-5 ps-5">
+		<div class="container-fluid">
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fontnav text-white">
 				<li class="nav-item">
 					<a href="index.php" class="nav-link">HOME</a>
@@ -31,8 +31,10 @@
 				<li class="nav-item">
 					<a href="?page=booking" class="nav-link"><i class="bi bi-cart-plus"></i> booking</a>
 				</li>
-			</ul>
-
+                <li class="nav-item">
+					<a href="?page=responden" class="nav-link"><i class="bi bi-cart-plus"></i> Contact US</a>
+				</li>
+</ul>
 			<div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fontnav">
 					<li class="nav-item">
