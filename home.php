@@ -6,7 +6,7 @@ function rupiah($angka){
 	return $hasil_rupiah;
 }
 ?>
-<div class="container">
+<div class="container-fluid ps-0">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="kategori-title" style="background-color: rgb(130, 219, 216); color:black; ">Kategori Produk</div>

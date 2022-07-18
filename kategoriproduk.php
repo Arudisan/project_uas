@@ -19,7 +19,6 @@
 			<div class="row">
                 <!-- judul kategori -->
                 <?php
-                include "functionCtrl.php";
                     $idkey = $_GET['id'];
                     $qlist_produk = mysqli_query($koneksidb, "SELECT kp.nm_tipe
                         FROM mst_tipekamar kp WHERE kp.id_tipe = $idkey;");

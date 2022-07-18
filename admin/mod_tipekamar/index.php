@@ -12,7 +12,7 @@
             <th>Action</th>
         </tr>
             <?php
-            $data = mysqli_query($koneksidb, "SELECT * FROM mst_tipekamar");
+            $data = mysqli_query($koneksidb, "SELECT * FROM mst_tipekamar order by id_tipe ASC");
             foreach ($data as $d) :
             ?>
                 <tr>

@@ -19,44 +19,40 @@
 
 <body>
 	<!-- navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light bgnav" style="color: white !important">
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color :rgb(10, 161, 221);">
 		<div class="container-fluid">
-			<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fontnav text-white">
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fontnav text-white" >
 				<li class="nav-item">
-					<a href="index.php" class="nav-link">HOME</a>
+					<a href="index.php" class="nav-link" style="color:white;">HOME</a>
 				</li>
 				<li class="nav-item">
-					<a href="?page=halamanProduk" class="nav-link">PRODUCT</a>
+					<a href="?page=halamanProduk" class="nav-link" style="color:white;">PRODUCT</a>
 				</li>
 				<li class="nav-item">
-					<a href="?page=booking" class="nav-link"><i class="bi bi-cart-plus"></i> booking</a>
-				</li>
-                <li class="nav-item">
-					<a href="?page=responden" class="nav-link"><i class="bi bi-cart-plus"></i> Contact US</a>
+					<a href="?page=booking" class="nav-link" style="color:white;">booking</a>
 				</li>
 </ul>
 			<div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fontnav">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="?page=daftarmember">Daftar Member</a>
+						<a class="nav-link active" aria-current="page" href="?page=daftarmember" style="color:white;">Daftar Member</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+						<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" style="color:white;">Login</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- header banner -->
-	<section id="header">
-		<div class="container ps-0">
-			<img src="assets/img/banner.jpg" class="banner" />
+    <div class="row"> 
+		<div class="container-fluid ps-0">
+			<img src="assets/img/bromo.jpg" class="banner" />
 			<div class="judulbanner">
-				<span class="subtitle1">ASE Distro</span> <br />
-				<span class="subtitle2">Yuk belanjaa...!!!</span>
+				<span class="" style="font-size: 50px; color: #fff;  font-weight: bolder; webkit-text-stroke: 0.05em #000;">Selamat Datang di Hotel Seagul</span> <br />
 			</div>
 		</div>
-	</section>
+        </div>
 	<!-- konten -->
 	<section id="konten ">
 		<?php 
@@ -69,10 +65,10 @@
 		 ?>
 	</section>
 	<!-- footer -->
-	<section id="footer" class="bgnav text-white">
-		<div class="container pt-4">
-			<div class="row">
-				<div class="col-md-4">
+	<section id="footer" class="" style="background-color:rgb(47, 143, 157);">
+		<div class="container-fluid">
+			<div class="row " style="color:white;">
+				<div class="col-md-4" style="color:white;">
 					<address class="fw-bold mb-0">ASE's Distro :</address>
 					<p class="mb-0">Jalan Merdeka No.101 , Manyar Surabaya</p>
 					<p>WA : 081-3393-64971</p>
