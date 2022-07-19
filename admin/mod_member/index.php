@@ -1,6 +1,5 @@
 <?php
 include_once("daftarCtrl.php");
-include_once("detailmember.php");
 ?>
         <table class="table table-bordered ">
             <?php if(!isset($_GET['profile']) && (!isset($_GET['history']))){?>
@@ -16,7 +15,6 @@ include_once("detailmember.php");
                 <th>alamat</th>
                 <th>jenis kelamin</th>
                 <th>foto</th>
-                <th>history transaksi</th>
             </tr>
             <?php
             }
@@ -33,8 +31,7 @@ include_once("detailmember.php");
                 <td><?=$d['no_telp'];?></td>
                 <td><?=$d['alamat'];?></td>
                 <td><?=$d['jk'];?></td>
-                <td><img src="../assets/img/<?=$d['foto']; ?>" width="200px"></td>
-                <td><a href="?modul=mod_member&history=detailmember.php&id=<?=$d['idmember'];?>">History Trasaksi</a></td>
+                <td><img src="../assets/img/<?=$d['foto']; ?>" width="200px"></td>>
             </tr>
             <?php }?>    
         </table>

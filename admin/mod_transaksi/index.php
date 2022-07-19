@@ -31,7 +31,7 @@ if (!isset($_GET['action'])) {
                 <td><?= $lp['tgl_lhr']; ?></td>
                 <td><?= $lp['no_tlp']; ?></td>
                 <td><?= $lp['alamat']; ?></td>
-                <td><?= $lp['gambar']; ?></td>
+                <td><img src="../assets/img/<?=$lp['gambar']; ?>" width="200px"></td>>
                   </tr>
         <?php
         endforeach;

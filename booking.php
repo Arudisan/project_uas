@@ -29,7 +29,7 @@
 				} else {
 					$nourut_baru =  "001";
 				}
-				$kodeterbaru = "MB".$th_sekarang.$nourut_baru;
+				$kodeterbaru = "BKK".$th_sekarang.$nourut_baru;
 				// echo $no_urutakhir;
 				// echo "kode: ".$kodeterbaru;
 				//untuk contoh combo
@@ -62,7 +62,7 @@
 									</div>
 								</div>
 								<div class="row pb-1">
-									<label for="tgllhr" class="col-md-3">Tanggal lahir</label>
+									<label for="tgllhr" class="col-md-3">Tanggal Booking</label>
 									<div class="col-md-6">
 										<input type="date" name="tgllhr" id="tgllhr" class="form-control" />
 										<input type="hidden" name="tglbooking" id="tglbooking" class="form-control" />

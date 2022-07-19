@@ -233,7 +233,7 @@ if (!isset($_GET['act'])) {
         <div class="col-md-5"> 
         <div class="d-grid gap-2 d-md-block">
         <button class="btn btn-secondary" type="reset" ><i class="bi bi-x" name="reset" > </i> Batal </button>
-        <button class="btn btn-primary" type="button" name="btnkonfirm" data-bs-toggle="modal"><i class="bi bi-download" > </i> Simpan </button>
+        <button class="btn btn-primary" type="submit" data-bs-toggle="modal"><i class="bi bi-download" > </i> Simpan </button>
         </div>
         <div class="col-md-1"></div>
         </div>
@@ -259,8 +259,6 @@ if (!isset($_GET['act'])) {
     </div> 
     </div> 
     </div>
-
-
         <?php
         }
         ?>

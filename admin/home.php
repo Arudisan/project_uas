@@ -42,9 +42,9 @@ security_login();
 </head>
 
 <body>
-	<nav class="navbar fixed-top navbar-light bg-primary">
+	<nav class="navbar fixed-top navbar-light" style="background-color:rgb(60, 207, 78);">
 		<div class="container-fluid">
-			<a class="navbar-brand text-white">Navbar</a>
+			<a class="navbar-brand text-white">Welcome to Seagul Board</a>
 			<form class="d-flex">
 				<input class="form-control me-2" type="text" readonly value="<?= $_SESSION['namauser_log']; ?>">
 				<a href="logout.php" class="btn btn-warning text-white"> Logout</a>
