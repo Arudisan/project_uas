@@ -80,3 +80,13 @@ if(document.getElementById("formbo")){
         $(location).attr("href","?page=booking");
       });
 }
+if(document.getElementById("formkamar")){
+  $("#btnkonfirm").click(function () {
+          $("#konfirmasi").modal("show");
+    });
+    $("#btnyes").click(function () {
+      $("#formkamar").attr("action", "kamar_Ctrl.php");
+      $("#formkamar").submit();
+      $(location).attr("href","?modul=mod_kamar");
+    });
+}
