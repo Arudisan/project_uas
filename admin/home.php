@@ -87,13 +87,9 @@ security_login();
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 	</script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="../assets/proses.js"></script>
-	<script src="../assets/js/adit.js"></script>
-	<script src="../assets/js/sulthan.js"></script>
-	<script src="../assets/js/galang.js"></script>
-	<script src="../assets/js/ardi.js"></script>
-	<script src="../assets/js/agung.js"></script>
-	<script src="../assets/js/putra.js"></script>
+	<!-- <script src="../assets/proses.js"></script> -->
+	<script src="../assets/ardi.js"></script>
+
 </body>
 
 </html>

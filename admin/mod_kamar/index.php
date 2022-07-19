@@ -43,7 +43,7 @@ if (!isset($_GET['act'])) {
     ?>
     <div class="row">
         <h3><?php echo $judul; ?></h3>
-        <form action="?modul=mod_kamar&act=save" method="post" enctype="multipart/form-data">
+        <form action="#" method="post" id="formkamar" enctype="multipart/form-data">
         <div class="row pt-2">
             <div class="col-md-2"> 
             <label for="username" class="form-label" name="judul"  >id_kamar </label>
@@ -122,9 +122,26 @@ if (!isset($_GET['act'])) {
         <div class="col-md-5"> 
         <div class="d-grid gap-2 d-md-block">
         <button class="btn btn-secondary" type="reset" ><i class="bi bi-x" name="reset" > </i> Batal </button>
-        <button class="btn btn-primary" type="submit"><i class="bi bi-download" name="simpan" > </i> Simpan </button>
+        <button class="btn btn-primary" type="submit" name="btnkonfirm" data-bs-toggle="modal"><i class="bi bi-download" name="simpan" > </i> Simpan </button>
         </div>
         <div class="col-md-1"></div>
+        </div>
+        <div class="modal fade" id="konfirmasi" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                apakah anda yakin ingin menyimpan?
+            </div>
+            <div class="modal-footer">
+                <button type="button" name="btnbatal" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" name="btnsimpan" id="btnsimpan" class="btn btn-primary">Simpan</button>
+            </div>
+            </div>
+        </div>
         </div>
         </form> 
     </div> 
@@ -136,7 +153,7 @@ if (!isset($_GET['act'])) {
     ?>
         <div class="row">
         <h3><?php echo $judul; ?></h3>
-        <form action="?modul=mod_kamar&act=update" method="post" enctype="multipart/form-data">
+        <form action="?modul=mod_kamar&act=update" method="post" id="formkamar" enctype="multipart/form-data">
         <div class="row pt-2">
             <div class="col-md-2"> 
             <label for="username" class="form-label" name="judul"  >id_kamar </label>
@@ -160,8 +177,8 @@ if (!isset($_GET['act'])) {
         <label for="username" class="form-label" name="gambar" >gambar</label>
     </div>  
     <div class="col-md-5"> 
-        <input type="file" name="gambar" class="form-control"  value="<?php echo $data['gambar'];?>"> 
-        <img src="../../assets/img/<?=$data['gambar']; ?>" class="img img-thumbnail mt-1" width="200px"> 
+        <input type="file" name="img" class="form-control" > 
+        <img src="  ../assets/img/<?=$data['gambar']; ?>" class="img img-thumbnail mt-1" width="200px"> 
         </div>
         <div class="col-md-1"></div>
         </div>
@@ -216,13 +233,34 @@ if (!isset($_GET['act'])) {
         <div class="col-md-5"> 
         <div class="d-grid gap-2 d-md-block">
         <button class="btn btn-secondary" type="reset" ><i class="bi bi-x" name="reset" > </i> Batal </button>
-        <button class="btn btn-primary" type="submit"><i class="bi bi-download" name="simpan" > </i> Simpan </button>
+        <button class="btn btn-primary" type="button" name="btnkonfirm" data-bs-toggle="modal"><i class="bi bi-download" > </i> Simpan </button>
         </div>
         <div class="col-md-1"></div>
+        </div>
+            <!-- modal -->
+    <div class="modal fade" id="konfirmasi" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                apakah anda yakin ingin menyimpan?
+            </div>
+            <div class="modal-footer">
+                <button type="button" name="btnbatal" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" name="btnsimpan" id="btnsimpan" class="btn btn-primary">Simpan</button>
+            </div>
+            </div>
+        </div>
         </div>
         </form> 
     </div> 
     </div> 
     </div>
+
+
         <?php
         }
+        ?>

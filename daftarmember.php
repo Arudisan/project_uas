@@ -33,13 +33,14 @@
 				// $data_produk = mysqli_query($koneksidb,"select * from mst_produk ");
 			}
 			?>
-		<div class="container pb-5">
-			<div class="row">
-				<div class="col-md-1 pt-4"></div>
-				<div class="col-md-10 pt-4">
-					<div class="subkategori p-3" id="formdaftar">
+    <section style="background-color:rgb(33, 85, 205);">
+		<div class="container pb-5" style="background-color:rgb(33, 85, 205);">
+			<div class="row" style="background-color:rgb(33, 85, 205);">
+				<div class="col-md-1 pt-4" style="background-color:rgb(33, 85, 205);"></div>
+				<div class="col-md-10 pt-4" style="background-color:rgb(232, 249, 253);">
+					<div class="" id="formdaftar">
 						<h5 class="text-center pb-2"><b> DAFTAR MEMBER</b></h5>
-						<div class="row">
+						<div class="row" >
 							<div class="col-md-2"></div>
 							<div class="col-md-10">
 								<form action="#" id="formdaft" method="POST" enctype="multipart/form-data">
@@ -138,7 +139,7 @@
 							</div>
 						</div>
 					</div>
-
+                    </section>
 					<!-- modal simpan -->
 					
 					<!-- ketika tampil hasil -->

@@ -49,7 +49,7 @@
 		<div class="container-fluid ps-0">
 			<img src="assets/img/bromo.jpg" class="banner" />
 			<div class="judulbanner">
-				<span class="" style="font-size: 50px; color: #fff;  font-weight: bolder; webkit-text-stroke: 0.05em #000;">Selamat Datang di Hotel Seagul</span> <br />
+				<span class="" style=";font-size: 52px; color: #fff;font-weight: bolder;-webkit-text-stroke: 0.05em #000;">Selamat Datang di Hotel Seagul</span> <br />
 			</div>
 		</div>
         </div>

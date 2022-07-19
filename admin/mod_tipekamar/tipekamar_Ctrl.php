@@ -1,4 +1,6 @@
 <?php
+security_login();
+
 if (isset($_GET['action']) && ($_GET['action'] == "add")) {
     $judul = "Input your data";
 } else if (isset($_GET['action']) && ($_GET['action'] == "edit")) {
@@ -17,3 +19,4 @@ if (isset($_GET['action']) && ($_GET['action'] == "add")) {
     mysqli_query($koneksidb, "DELETE FROM mst_tipekamar WHERE id_tipe='$id'");
     header("Location: home.php?modul=mod_tipekamar");
 }
+?>

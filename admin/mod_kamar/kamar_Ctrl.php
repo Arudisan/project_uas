@@ -1,4 +1,5 @@
 <?php
+security_login();
 if (isset($_GET['act']) && ($_GET['act'] == "add")) {
     $judul = "Form Input Data";
 } else if (isset($_GET['act']) && ($_GET['act'] == "edit")) {
@@ -13,10 +14,10 @@ if (isset($_GET['act']) && ($_GET['act'] == "add")) {
     $jml = $_POST['jumlah'];
     $deskripsi = $_POST['deskripsi'];
     $file = $_FILES['gambar'];
-    var_dump($file);
+    // var_dump($file);
     /*tentukan folder lokasi direktori penyimpanan file */
     $target_dir = "../assets/img/";
-    echo $file['name'] . "<br/>"; //output ini yang disimpan ke database
+    // echo $file['name'] . "<br/>"; //output ini yang disimpan ke database
     /*tujuan penyimpanan file, direktori dan nama file*/
     $target_file = $target_dir . $file['name'];
     //echo $target_file."<br/>";
@@ -45,6 +46,7 @@ if (isset($_GET['act']) && ($_GET['act'] == "add")) {
         if (move_uploaded_file($file['tmp_name'], $target_file)) {
             $namafile = $file['name']; //variabel ini yang di panggil di query
             mysqli_query($koneksidb, "INSERT INTO mst_kamar (nm_kamar,gambar,id_tipe,harga,jml,deskripsi) VALUES ('$nmkamar','$namafile','$idtipe','$harga','$jml','$deskripsi')");
+            header("Location: http://localhost/project_uas/admin/home.php?modul=mod_kamar");
         } else {
             // pesan("GAGAL upload file gambar!!");	
         }
@@ -56,13 +58,55 @@ if (isset($_GET['act']) && ($_GET['act'] == "add")) {
     $harga = $_POST['harga'];
     $jml = $_POST['jumlah'];
     $deskripsi = $_POST['deskripsi'];
-    $qinsert = mysqli_query(
-        $koneksidb,
-        "UPDATE mst_kamar SET nm_kamar='$nmkamar',gambar='$namafile', id_tipe='$idtipe',harga='$harga',jml='$jml',deskripsi='$deskripsi' WHERE id_kamar='$idkamar'"
-    )
-        or die(mysqli_error($koneksidb));
+    mysqli_query($koneksidb,"UPDATE mst_kamar SET nm_kamar='$nmkamar', id_tipe='$idtipe',harga='$harga',jml='$jml',deskripsi='$deskripsi' WHERE id_kamar='$idkamar'");
+    header("Location: http://localhost/project_uas/admin/home.php?modul=mod_kamar");
+    $file = $_FILES['img']; 
+	// var_dump($file);	
+	/*tentukan folder lokasi direktori penyimpanan file */
+	$target_dir = "../assets/img/";
+	// echo $file['name']."<br/>"; //output ini yang disimpan ke database
+	/*tujuan penyimpanan file, direktori dan nama file*/
+	$target_file = $target_dir.$file['name']; 
+		//echo $target_file."<br/>";
+	/*untuk mendapatkan tipe file yang diupload */
+	$type_file = strtolower(pathinfo($file['name'],PATHINFO_EXTENSION));
+	/*buat variabel untuk menampung hasil validasi ,
+	apakah file boleh diupload atau tidak, jika 1 maka boleh diupload,
+	jika 0 maka tidak dapat diupload*/	
+	$is_upload = 1;
+	/* cek batas limit file maks.3MB*/
+	if($file['size'] > 3000000){
+		$is_upload = 0;
+		pesan("File lebih dari 3MB!!");		
+	}
+	/**cek tipe file */
+	if($type_file != "jpg" && $type_file != "png" && $type_file != "gif" && $type_file != "jpeg"){
+		$is_upload = 0;
+		//pesan("Tipe file bukan file gambar!!".$type_file);	
+	}
+	/**buat variabel untuk menampung nama file yang akan disimpan ke database,
+	 * dengan nilai awal kosong, akan di beri nilai jika upload berhasil
+	 */
+	$namafile = "";
+	/**proses upload */
+	if($is_upload == 1){
+		if(move_uploaded_file($file['tmp_name'], $target_file)){
+			$namafile = $file['name']; //variabel ini yang di panggil di query
+            mysqli_query($koneksidb,"UPDATE mst_kamar SET nm_kamar='$nmkamar',gambar='$namafile', id_tipe='$idtipe',harga='$harga',jml='$jml',deskripsi='$deskripsi' WHERE id_kamar='$idkamar'");
+            header("Location: http://localhost/project_uas/admin/home.php?modul=mod_kamar");
+		}
+		else{
+           
+		}
+	}
+
+    // $qinsert = mysqli_query(
+    //     $koneksidb,
+    //     "UPDATE mst_kamar SET nm_kamar='$nmkamar',gambar='$namafile', id_tipe='$idtipe',harga='$harga',jml='$jml',deskripsi='$deskripsi' WHERE id_kamar='$idkamar'"
+    // )
+    //     or die(mysqli_error($koneksidb));
 } else if (isset($_GET['act']) && ($_GET['act'] == "delete")) {
-    //jika ada send variabel act=edit, tampil form edit/ubah data
+    //jika ada send variabel act=edit, tampi form edit/ubah data
     $idkey = $_GET['id']; //dapat dari URL
     $qdelete = mysqli_query($koneksidb, "DELETE from mst_kamar where id_kamar=$idkey") or die(mysqli_error($koneksidb));
     if ($qdelete) {

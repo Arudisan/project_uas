@@ -11,8 +11,8 @@
 	return $hasil_rupiah;
      }
 	?>
-	<section id="konten">
-		<div class="row pt-2">
+	<section id="konten" >
+		<div class="row pt-2" style="background-color:rgb(179, 232, 229)">
 			<div class="col-md-2"></div>
 			<div class="col-md-6">
 				<b>
@@ -30,6 +30,7 @@
 				</form>
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
@@ -39,14 +40,14 @@
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-2 pt-2">
-				<div class="kategori-title">Kategori Produk</div>
+				<div class="kategori-title" style="background-color:blue;">Kategori Produk</div>
 				<?php
             $qry_listkat= mysqli_query($koneksidb,"select * from mst_tipekamar order by id_tipe DESC")or die("gagal akses tabel mst_tipekamar".mysqli_error($koneksidb));
 			$qry=mysqli_query($koneksidb,"SELECT * from mst_tipekamar");
 
             while($row = mysqli_fetch_array($qry_listkat)){
             ?>
-				<div class="subkategori" id="">
+				<div class="subkategori" id=""  style="background-color: rgb(232, 249, 253);">
 					<ul>
 						<li>
 							<a
@@ -69,15 +70,15 @@
                     foreach($qlist_produk as $lp) :
                 ?>
 					<div class="col-md-4 pb-4">
-						<div class="card">
+						<div class="card" >
 							<img src="assets/img/<?= $lp['gambar'];?>" class="card-img-top" alt="..." />
-							<div class="card-body text-center bgcardbody">
+							<div class="card-body text-center" style="background-color: rgb(232, 249, 253);">
 								<h5 class="card-title"><?= $lp['nm_kamar'];?></h5>
 								<h6 class="harga"><?= rupiah($lp['harga']); ?></h6>
 
 							</div>
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item btndetail">
+								<li class="list-group-item btndetail" style="background-color:  rgb(33, 85, 205);">
 									<a href="?page=detailproduk&id=<?= $lp['id_kamar'];?>" target="_blank"
 										class="btn text-white">Detail</a>
 								</li>

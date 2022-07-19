@@ -36,13 +36,15 @@
 				// $data_produk = mysqli_query($koneksidb,"select * from mst_produk ");
 			
 			?>
-		<div class="container pb-5">
+		<div class="container-fluid ps-0">
 			<div class="row">
-				<div class="col-md-1 pt-4"></div>
-				<div class="col-md-10 pt-4">
-					<div class="subkategori p-3" id="formdaftar">
+				<div class="col-md-6"> 
+					<img src="assets/img/cs2.jpg" alt="" width="700px" height="600px">
+				</div>
+				<div class="col-md-6 ps-0">
+					<div class="p-3" id="formdaftar" style="background-color:rgb(232, 249, 253); font-weight:40px;">
 						<h5 class="text-center pb-2"><b> Booking Kamar Hotel</b></h5>
-						<div class="row">
+						<div class="row ps-0">
 							<div class="col-md-2"></div>
 							<div class="col-md-10">
 								<form action="?page=booking" id="formbo" method="POST" enctype="multipart/form-data">

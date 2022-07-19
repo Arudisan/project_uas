@@ -51,12 +51,12 @@
 				<div class="col-md-3 pb-4">
 					<div class="card">
 						<img src="assets/img/<?= $lp['gambar'];?>" class="card-img-top" alt="..." />
-						<div class="card-body text-center bgcardbody">
+						<div class="card-body text-center "  style="background-color: rgb(232, 249, 253);">
 							<h5 class="card-title"><?= $lp['nm_kamar'];?></h5>
-							<h6 class="harga"><?= "Rp ".fnumber($lp['harga']);?></h6>
+							<h6 class="harga"><?= "Rp ".$lp['harga'];?></h6>
 						</div>
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item btndetail">
+							<li class="list-group-item btndetail" style="background-color:  rgb(33, 85, 205);">
 								<a href="?page=detailproduk&id=<?= $lp['id_kamar'];?>" target="_blank" class="text-white">Detail</a>
 							</li>
 						</ul>
